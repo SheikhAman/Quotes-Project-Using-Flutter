@@ -4,7 +4,8 @@ import 'quote.dart';
 class QuoteCard extends StatelessWidget {
   final Quote // using final because its not going to change over time //  here it is Quote  class type variable
       quote; // taking the value from named constructor and assign it to the quote
-  late Function delete; //  delete function  will be assign here
+  VoidCallback
+      delete; //  delete function  will be assign here  // used void call back type
   // ignore: use_key_in_widget_constructors
   QuoteCard(
       {required this.quote, // parameterised constructor a curly  braces use hoi
@@ -38,10 +39,16 @@ class QuoteCard extends StatelessWidget {
             SizedBox(
               height: 8.0,
             ),
-            ElevatedButton.icon(
+            TextButton.icon(
               onPressed: delete,
-              icon: Icon(Icons.delete),
-              label: Text('delete quotes'),
+              icon: Icon(
+                Icons.delete,
+                color: Colors.black,
+              ),
+              label: Text(
+                'delete quotes',
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ],
         ),
